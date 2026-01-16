@@ -6,7 +6,8 @@ import satyabratImg from './satyabrat.jpeg';
 import kartikImg from './kartik.jpeg';
 import ashutoshImg from './ashutosh.jpeg';
 import akshitImg from './akshit.jpeg';
-
+import rajanImg from './Rajan.jpeg';
+import ritikImg from './ritik.jpg';
 const teamMembers = [
   {
     name: 'Satyabrat Sahu',
@@ -39,10 +40,17 @@ const teamMembers = [
   {
     name: 'Rajan Jha',
     role: 'Full Stack Developer',
-    photoUrl: 'https://avatars.githubusercontent.com/u/150759488?v=4',
+    photoUrl: rajanImg,
     githubUrl: 'https://github.com/Rajan167030',
     linkedinUrl: 'https://www.linkedin.com/in/rajan-jha-0307b7310/',
   },
+  {
+    name: 'Ritik Raj',
+    role: 'Community Outreach Director',
+    photoUrl: ritikImg,
+    linkedinUrl: 'https://www.linkedin.com/in/thenightowl009-34532b377',
+    githubUrl: 'https://github.com/thenightowl009'
+  }
 ];
 
 const TeamMemberCard = ({ theme, member }) => {
@@ -62,8 +70,9 @@ const TeamMemberCard = ({ theme, member }) => {
         <img
           src={member.photoUrl}
           alt={member.name}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full transition-transform duration-300 group-hover:scale-110"
           loading="lazy"
+          style={{ objectFit: 'cover', objectPosition: 'center 10%' }}
           onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x300/1a1a1a/FFFFFF?text=" + member.name.split(' ').map(n => n[0]).join(''); }}
         />
       </div>

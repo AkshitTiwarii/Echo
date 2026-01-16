@@ -1,8 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = ({ onGetStartedClick, onTeamClick, currentPage = 'landing' }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  
+  const handleNavClick = (e, section) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -52,11 +73,11 @@ const Navbar = ({ onGetStartedClick, onTeamClick, currentPage = 'landing' }) => 
             </>
           ) : (
             <>
-              <a href="#home" className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Home</a>
-              <a href="#how-it-works" className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">How It Works</a>
-              <a href="#features" className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Features</a>
-              <a href="#stories" className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Stories</a>
-              <a href="#resources" className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Resources</a>
+              <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Home</a>
+              <a href="#how-it-works" onClick={(e) => handleNavClick(e, '#how-it-works')} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">How It Works</a>
+              <a href="#features" onClick={(e) => handleNavClick(e, '#features')} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Features</a>
+              <a href="#stories" onClick={(e) => handleNavClick(e, '#stories')} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Stories</a>
+              <a href="#resources" onClick={(e) => handleNavClick(e, '#resources')} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Resources</a>
               <a href="#team" onClick={(e) => { e.preventDefault(); onTeamClick && onTeamClick(); }} className="text-white hover:text-gray-300 transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap">Team</a>
               {/* Get Started button commented out for now */}
               {/* <button
@@ -99,11 +120,11 @@ const Navbar = ({ onGetStartedClick, onTeamClick, currentPage = 'landing' }) => 
               </>
             ) : (
               <>
-                <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Home</a>
-                <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">How It Works</a>
-                <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Features</a>
-                <a href="#stories" onClick={() => setMobileMenuOpen(false)} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Stories</a>
-                <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Resources</a>
+                <a href="#home" onClick={(e) => { handleNavClick(e, '#home'); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Home</a>
+                <a href="#how-it-works" onClick={(e) => { handleNavClick(e, '#how-it-works'); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">How It Works</a>
+                <a href="#features" onClick={(e) => { handleNavClick(e, '#features'); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Features</a>
+                <a href="#stories" onClick={(e) => { handleNavClick(e, '#stories'); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Stories</a>
+                <a href="#resources" onClick={(e) => { handleNavClick(e, '#resources'); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Resources</a>
                 <a href="#team" onClick={(e) => { e.preventDefault(); onTeamClick && onTeamClick(); setMobileMenuOpen(false); }} className="text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg block">Team</a>
                 {/* Get Started button commented out for now */}
                 {/* <button

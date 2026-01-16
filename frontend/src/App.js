@@ -156,27 +156,6 @@ const App = () => {
           </section>
 
           <section id="how-it-works" className="py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative" style={{ backgroundColor: '#000000' }}>
-            <ViewportLazyPixelBlast
-              className="absolute inset-0 pointer-events-none hidden lg:block"
-              style={{ zIndex: 0 }}
-              variant="circle"
-              pixelSize={6}
-              color="#B19EEF"
-              patternScale={3}
-              patternDensity={1.0}
-              pixelSizeJitter={0.3}
-              enableRipples
-              rippleSpeed={0.3}
-              rippleThickness={0.1}
-              rippleIntensityScale={1.2}
-              liquid
-              liquidStrength={0.08}
-              liquidRadius={1.0}
-              liquidWobbleSpeed={4}
-              speed={0.4}
-              edgeFade={0.2}
-              transparent
-            />
             <div className="max-w-6xl mx-auto relative" style={{ zIndex: 2 }}>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 sm:mb-10 md:mb-12 text-center text-white">How ECHO Works</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
