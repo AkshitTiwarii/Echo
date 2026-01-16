@@ -46,6 +46,7 @@ const teamMembers = [
 ];
 
 const TeamMemberCard = ({ theme, member }) => {
+  // eslint-disable-next-line no-unused-vars
   const currentColors = themes[theme];
   return (
     <motion.div
@@ -95,6 +96,7 @@ const TeamMemberCard = ({ theme, member }) => {
 };
 
 const TeamPage = ({ theme = 'dark', onBack }) => {
+  // eslint-disable-next-line no-unused-vars
   const currentColors = themes[theme];
   return (
     <motion.div

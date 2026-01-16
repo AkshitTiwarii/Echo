@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from './landing/Navbar';
 import TeamPage from './landing/TeamPage';
 import './App.css';
@@ -16,8 +16,8 @@ import ViewportLazyPixelBlast from './components/ViewportLazyPixelBlast';
 
 const App = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [activeModal, setActiveModal] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [userProfile, setUserProfile] = useState({ name: 'User', dob: '', gender: '' });
 
   // Commented out for now - dashboard not ready
@@ -305,10 +305,10 @@ const App = () => {
                   {title: 'For Caregivers', desc: 'Discover how ECHO can help you provide better care with real-time insights and intelligent monitoring.'},
                   {title: 'Privacy & Security', desc: 'Learn about our blockchain-based security measures and commitment to protecting precious memories.'}
                 ].map((res) => (
-                  <a key={res.title} href="#" className="p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl block transition-all duration-300 hover:scale-[1.03]" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)', transform: 'translateZ(0)' }}>
+                  <button key={res.title} onClick={() => {}} className="p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl block transition-all duration-300 hover:scale-[1.03] text-left w-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)', transform: 'translateZ(0)' }}>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-white">{res.title}</h3>
                     <p className="text-gray-400 text-xs sm:text-sm">{res.desc}</p>
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>

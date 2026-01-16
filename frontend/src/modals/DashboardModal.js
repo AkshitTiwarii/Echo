@@ -8,8 +8,7 @@ import {
   Bell, 
   Edit3, 
   LogOut,
-  User,
-  Settings
+  User
 } from 'lucide-react';
 import { themes } from '../styles/tailwindStyles';
 
